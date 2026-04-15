@@ -1,0 +1,184 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Inter, system-ui;
+  background: #05060a;
+  color: white;
+  overflow-x: hidden;
+   text-align: center;
+     display: flex;
+  justify-content: center;
+}
+
+/* centered app */
+.app {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
+  padding: 40px 16px;
+  box-sizing: border-box;
+  justify-content: space-between;
+  text-align: center;
+  position: relative;
+}
+
+
+
+
+/* animated background glow */
+.app::before,
+.app::after {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #00f5ff33, transparent);
+  filter: blur(60px);
+  z-index: 0;
+}
+
+.app::before {
+  top: -100px;
+  left: -100px;
+}
+
+.app::after {
+  bottom: -100px;
+  right: -100px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+
+  width: 100%;
+  max-width: 900px;
+
+  margin-top: 30px;
+  z-index: 2;
+}
+
+.glow {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, #00f5ff55, transparent);
+  filter: blur(20px);
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  gap: 8px;
+}
+
+.actions a,
+.actions button {
+  flex: 1;
+  padding: 8px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  transition: 0.2s;
+}
+
+.actions a:hover,
+.actions button:hover {
+  background: rgba(0, 245, 255, 0.2);
+}
+
+/* modal */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.modal {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  padding: 20px;
+  border-radius: 16px;
+  text-align: center;
+}
+
+/* toast */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  background: rgba(0, 245, 255, 0.15);
+  padding: 10px 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
+/* header, footer {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+} */
+
+.bg-overlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top left, #00f5ff22, transparent),
+              radial-gradient(circle at bottom right, #7c3aed22, transparent);
+  z-index: 0;
+}
+
+
+
+.content {
+  width: 100%;
+  max-width: 1100px;
+
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+  justify-content: center;
+
+   gap: 12px; /* IMPORTANT: reduce this */
+}
+
+@media (max-width: 900px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* mobile */
+@media (max-width: 600px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+footer {
+  margin-top: 0;
+  font-size: 11px;
+  opacity: 0.6;
+}
