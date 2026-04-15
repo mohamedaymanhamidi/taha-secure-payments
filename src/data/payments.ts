@@ -17,4 +17,18 @@ export const payments = [
     link: "https://enroll.zellepay.com/qr-codes?data=eyJuYW1lIjoiQURFRUwgUklBWiIsImFjdGlvbiI6InBheW1lbnQiLCJ0b2tlbiI6IjIwMjkxMDc1MzUifQ==",
     className: "zelle",
   },
+
+  // ✅ NEW
+  {
+    name: "PayPal",
+    label: "Pay via PayPal invoice",
+    link: "https://www.paypal.com/invoice/p/#MBRJFEWYGRATXW55",
+    className: "paypal",
+  },
+  {
+    name: "Square",
+    label: "Pay via Square",
+    link: "https://square.link/u/z5LgM8Vr?src=qr",
+    className: "square",
+  },
 ];
